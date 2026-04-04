@@ -12,14 +12,14 @@ local outputSide = config.outputSide
 
 -- 📊 ดึงข้อมูล seed
 local function getSeedData(stack)
-  if not stack or not stack.tag then return nil end
+  if not stack or not stack.crop then return nil end
 
-  local tag = stack.tag
+  local crop = stack.crop
 
   local name = stack.label or "unknown"
 
-  local gr = tag.growth or tag.gr or 0
-  local ga = tag.gain or tag.ga or 0
+  local gr = crop.growth or crop.gr or 0
+  local ga = crop.gain or crop.ga or 0
 
   return {
     name = name,
