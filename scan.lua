@@ -13,22 +13,34 @@ local outputSide = config.outputSide
 
 local running = true
 -- 📊 ดึงข้อมูล seed
+
+local function isCrop(stack)
+    return stack.name == "IC2:itemCropSeed"
+end
+
 local function getSeedData(stack)
-    if not stack or not stack.crop then
+    if not stack or not isCrop(stack) then
         return nil
     end
+    if stack.crop then
+      local crop = stack.crop
 
-    local crop = stack.crop
+      local name = stack.label or "unknown"
 
-    local name = stack.label or "unknown"
+      local gr = crop.growth or crop.gr or 0
+      local ga = crop.gain or crop.ga or 0
 
-    local gr = crop.growth or crop.gr or 0
-    local ga = crop.gain or crop.ga or 0
-
-    return {
-        name = name,
-        score = gr + ga
-    }
+      return {
+          name = name,
+          score = gr + ga
+      }
+    else 
+      local name = stack.label or "unknown"
+      return {
+          name = name,
+          score = 0
+      }
+    end
 end
 
 local function checkEmty()
