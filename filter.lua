@@ -63,10 +63,10 @@ while running do
             local seed = getSeedData(stack)
 
             if seed then
+                local updated = db.update(seed.name, seed.score)
                 local high = db.get(seed.name)
                 if high then
                     if seed.score >= high - OFFSET then
-                        local updated = db.update(seed.name, seed.score)
                         transposer.transferItem(inputSide, outputSide, 64, slot)
                         print("KEEP:", seed.name, seed.score, "/", high)
                     else
