@@ -74,18 +74,18 @@ while running do
                         print("TRASH:", seed.name, seed.score, "/", high)
                     end
                 else
-                    if seed.name == "Weed" then
-                        transposer.transferItem(inputSide, trashSide, 64, slot)
-                        print("TRASH:", seed.name)
-                    else
-                         -- ยังไม่มีใน DB
-                        print("UNKNOWN:", seed.name)
-                        transposer.transferItem(inputSide, trashSide, 64, slot)
-                    end
+                    -- ยังไม่มีใน DB
+                    print("UNKNOWN:", seed.name)
+                    transposer.transferItem(inputSide, trashSide, 64, slot)
                 end
             else
-                print("SKIP:", stack.label)
-                transposer.transferItem(inputSide, outputSide, 64, slot)
+                if seed.name == "Weed" then
+                    transposer.transferItem(inputSide, trashSide, 64, slot)
+                    print("TRASH:", seed.name)
+                else
+                    print("SKIP:", stack.label)
+                    transposer.transferItem(inputSide, outputSide, 64, slot)
+                end
             end
         end
     end
