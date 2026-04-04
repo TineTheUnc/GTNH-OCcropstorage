@@ -79,9 +79,9 @@ while running do
                     transposer.transferItem(inputSide, trashSide, 64, slot)
                 end
             else
-                if seed.name == "Weed" then
+                if stack.label == "Weed" then
                     transposer.transferItem(inputSide, trashSide, 64, slot)
-                    print("TRASH:", seed.name)
+                    print("TRASH:", stack.label)
                 else
                     print("SKIP:", stack.label)
                     transposer.transferItem(inputSide, outputSide, 64, slot)
