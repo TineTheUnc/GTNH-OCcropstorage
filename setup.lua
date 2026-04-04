@@ -2,13 +2,7 @@ local shell = require('shell')
 local args = {...}
 local branch
 local repo
-local scripts = {
-    'config.lua',
-    'db.lua',
-    'filter.lua',
-    'scan.lua',
-    'seeds.db',
-}
+local scripts = {'config.lua', 'db.lua', 'filter.lua', 'scan.lua', 'seeds.db'}
 
 -- BRANCH
 if #args >= 1 then
@@ -25,6 +19,6 @@ else
 end
 
 -- INSTALL
-for i=1, #scripts do
+for i = 1, #scripts do
     shell.execute(string.format('wget -f %s%s/%s', repo, branch, scripts[i]))
 end
