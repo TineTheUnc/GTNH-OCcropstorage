@@ -2,7 +2,7 @@ local shell = require('shell')
 local args = {...}
 local branch
 local repo
-local scripts = {'config.lua', 'db.lua', 'filter.lua', 'scan.lua', 'seeds.db'}
+local scripts = {'config.lua', 'db.lua', 'filter.lua', 'scan.lua'}
 
 -- BRANCH
 if #args >= 1 then
