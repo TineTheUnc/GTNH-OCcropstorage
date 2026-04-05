@@ -29,7 +29,7 @@ local function getSeedData(stack)
 
       local gr = crop.growth or crop.gr or 0
       local ga = crop.gain or crop.ga or 0
-
+      if gr > 23 then gr = 23 end
       return {
           name = name,
           score = gr + ga
