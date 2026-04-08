@@ -89,6 +89,7 @@ while not checkEmty() and running do
         db.save()
         round = 0
     end
+    os.sleep(0)
 end
 
 db.save()
